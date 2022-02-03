@@ -19,17 +19,16 @@ label {
        var text = "";
        var peso =  parseFloat(document.getElementById("peso").value);
        var altura =  parseFloat(document.getElementById("altura").value) / 100;
-       var alturaFinal = alturaFinal*alturaFinal;
-       const result =  peso/alturaFinal;
+       var alturaFinal = (altura*altura);
+       const result =  parseFloat(peso/alturaFinal);
        if(result < 18.5) text = "Magreza";
-       if(result > 30.0) text = "Obesidade";
-       else if(result > 18.5 && result < 24.9){
-         text = "Normal";         
+       if(result > 18.5 && result < 24.9) text = "Normal";
+       if(result > 24.9 && result < 30){
+         text = "Sobrepeso";         
        } 
-       else{
-         text = "SobrePeso";
-       }
-       document.getElementById("result").innerHTML = result;
+       if(result > 30) text = "Obesidade";
+
+       document.getElementById("result").innerHTML = text;
   }
     </script>
   <meta charset="utf-8">
