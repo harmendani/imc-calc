@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <style>
+    *{font: 1rem 'Fira Sans', sans-serif;}
+
+label {
+    display: block;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+   </style>
+
+  <script>
+     function calcularImc(){
+       var text = "";
+       var peso =  parseFloat(document.getElementById("peso").value);
+       var altura =  parseFloat(document.getElementById("altura").value) / 100;
+       var alturaFinal = alturaFinal*alturaFinal;
+       const result =  peso/alturaFinal;
+       if(result < 18.5) text = "Magreza";
+       if(result > 30.0) text = "Obesidade";
+       else if(result > 18.5 && result < 24.9){
+         text = "Normal";         
+       } 
+       else{
+         text = "SobrePeso";
+       }
+       document.getElementById("result").innerHTML = result;
+  }
+    </script>
+  <meta charset="utf-8">
+  <title>Calculadoradora de IMC</title>
+</head>
+<body>
+ Calcule o seu IMC abaixo:
+<form>
+<label for="altura">Altura (em cm = XXX):</label>
+<input type="text" id="altura" name="altura" 
+ required minlength="3" maxlength="3" size=10>
+<label for="peso">Peso (em KG = XX.XX):</label>
+<input type="text" id="peso" name="peso" required
+   minlength="2" maxlength="5" size="10">  
+   <br>
+  <input type="button" onClick="calcularImc()" value="Calcular"></output>
+<label for="resultado">Resultado: </label>
+</form>
+    <p id="result"></p>
+</body>
+</html>
